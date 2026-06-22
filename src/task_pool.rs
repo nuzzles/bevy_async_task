@@ -5,6 +5,7 @@ use bevy_ecs::system::ExclusiveSystemParam;
 use bevy_ecs::system::ReadOnlySystemParam;
 use bevy_ecs::system::SystemMeta;
 use bevy_ecs::system::SystemParam;
+use bevy_ecs::system::SystemParamValidationError;
 use bevy_ecs::world::World;
 use bevy_ecs::world::unsafe_world_cell::UnsafeWorldCell;
 use bevy_platform::cell::SyncCell;
@@ -69,8 +70,11 @@ impl<T: Send + 'static> ExclusiveSystemParam for TaskPool<'_, T> {
     }
 
     #[inline]
-    fn get_param<'s>(state: &'s mut Self::State, _system_meta: &SystemMeta) -> Self::Item<'s> {
-        TaskPool(state.get())
+    fn get_param<'s>(
+        state: &'s mut Self::State,
+        _system_meta: &SystemMeta,
+    ) -> Result<Self::Item<'s>, SystemParamValidationError> {
+        Ok(TaskPool(state.get()))
     }
 }
 // SAFETY: only local state is accessed
@@ -90,8 +94,8 @@ unsafe impl<T: Send + 'static> SystemParam for TaskPool<'_, T> {
         _system_meta: &SystemMeta,
         _world: UnsafeWorldCell<'w>,
         _change_tick: Tick,
-    ) -> Self::Item<'w, 's> {
-        TaskPool(state.get())
+    ) -> Result<Self::Item<'w, 's>, SystemParamValidationError> {
+        Ok(TaskPool(state.get()))
     }
 
     fn init_access(
@@ -156,8 +160,11 @@ impl<T: Send + 'static> ExclusiveSystemParam for TimedTaskPool<'_, T> {
     }
 
     #[inline]
-    fn get_param<'s>(state: &'s mut Self::State, _system_meta: &SystemMeta) -> Self::Item<'s> {
-        TimedTaskPool(state.get())
+    fn get_param<'s>(
+        state: &'s mut Self::State,
+        _system_meta: &SystemMeta,
+    ) -> Result<Self::Item<'s>, SystemParamValidationError> {
+        Ok(TimedTaskPool(state.get()))
     }
 }
 // SAFETY: only local state is accessed
@@ -177,8 +184,8 @@ unsafe impl<T: Send + 'static> SystemParam for TimedTaskPool<'_, T> {
         _system_meta: &SystemMeta,
         _world: UnsafeWorldCell<'w>,
         _change_tick: Tick,
-    ) -> Self::Item<'w, 's> {
-        TimedTaskPool(state.get())
+    ) -> Result<Self::Item<'w, 's>, SystemParamValidationError> {
+        Ok(TimedTaskPool(state.get()))
     }
 
     fn init_access(
