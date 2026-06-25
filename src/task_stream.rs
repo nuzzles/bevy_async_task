@@ -5,6 +5,7 @@ use bevy_ecs::system::ExclusiveSystemParam;
 use bevy_ecs::system::ReadOnlySystemParam;
 use bevy_ecs::system::SystemMeta;
 use bevy_ecs::system::SystemParam;
+use bevy_ecs::system::SystemParamValidationError;
 use bevy_ecs::world::World;
 use bevy_ecs::world::unsafe_world_cell::UnsafeWorldCell;
 use bevy_platform::cell::SyncCell;
@@ -91,8 +92,11 @@ impl<T: Send + 'static> ExclusiveSystemParam for TaskStream<'_, T> {
         SyncCell::new(None)
     }
 
-    fn get_param<'s>(state: &'s mut Self::State, _system_meta: &SystemMeta) -> Self::Item<'s> {
-        TaskStream(state.get())
+    fn get_param<'s>(
+        state: &'s mut Self::State,
+        _system_meta: &SystemMeta,
+    ) -> Result<Self::Item<'s>, SystemParamValidationError> {
+        Ok(TaskStream(state.get()))
     }
 }
 
@@ -114,8 +118,8 @@ unsafe impl<T: Send + 'static> SystemParam for TaskStream<'_, T> {
         _system_meta: &SystemMeta,
         _world: UnsafeWorldCell<'w>,
         _change_tick: Tick,
-    ) -> Self::Item<'w, 's> {
-        TaskStream(state.get())
+    ) -> Result<Self::Item<'w, 's>, SystemParamValidationError> {
+        Ok(TaskStream(state.get()))
     }
 
     fn init_access(

@@ -6,6 +6,7 @@ use bevy_ecs::system::ExclusiveSystemParam;
 use bevy_ecs::system::ReadOnlySystemParam;
 use bevy_ecs::system::SystemMeta;
 use bevy_ecs::system::SystemParam;
+use bevy_ecs::system::SystemParamValidationError;
 use bevy_ecs::world::World;
 use bevy_ecs::world::unsafe_world_cell::UnsafeWorldCell;
 use bevy_platform::cell::SyncCell;
@@ -91,8 +92,11 @@ impl<T: Send + 'static> ExclusiveSystemParam for TaskRunner<'_, T> {
         SyncCell::new(None)
     }
 
-    fn get_param<'s>(state: &'s mut Self::State, _system_meta: &SystemMeta) -> Self::Item<'s> {
-        TaskRunner(state.get())
+    fn get_param<'s>(
+        state: &'s mut Self::State,
+        _system_meta: &SystemMeta,
+    ) -> Result<Self::Item<'s>, SystemParamValidationError> {
+        Ok(TaskRunner(state.get()))
     }
 }
 // SAFETY: only local state is accessed
@@ -112,8 +116,8 @@ unsafe impl<T: Send + 'static> SystemParam for TaskRunner<'_, T> {
         _system_meta: &SystemMeta,
         _world: UnsafeWorldCell<'w>,
         _change_tick: Tick,
-    ) -> Self::Item<'w, 's> {
-        TaskRunner(state.get())
+    ) -> Result<Self::Item<'w, 's>, SystemParamValidationError> {
+        Ok(TaskRunner(state.get()))
     }
 
     fn init_access(
@@ -201,8 +205,11 @@ impl<T: Send + 'static> ExclusiveSystemParam for TimedTaskRunner<'_, T> {
         SyncCell::new(None)
     }
 
-    fn get_param<'s>(state: &'s mut Self::State, _system_meta: &SystemMeta) -> Self::Item<'s> {
-        TimedTaskRunner(state.get())
+    fn get_param<'s>(
+        state: &'s mut Self::State,
+        _system_meta: &SystemMeta,
+    ) -> Result<Self::Item<'s>, SystemParamValidationError> {
+        Ok(TimedTaskRunner(state.get()))
     }
 }
 // SAFETY: only local state is accessed
@@ -222,8 +229,8 @@ unsafe impl<T: Send + 'static> SystemParam for TimedTaskRunner<'_, T> {
         _system_meta: &SystemMeta,
         _world: UnsafeWorldCell<'w>,
         _change_tick: Tick,
-    ) -> Self::Item<'w, 's> {
-        TimedTaskRunner(state.get())
+    ) -> Result<Self::Item<'w, 's>, SystemParamValidationError> {
+        Ok(TimedTaskRunner(state.get()))
     }
 
     fn init_access(
