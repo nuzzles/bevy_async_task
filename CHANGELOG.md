@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- This release supports **Bevy 0.18**.
+- This release supports **Bevy 0.19**.
+
+## [0.13.0] - 2026-06-24
+
+- This release supports **Bevy 0.19**.
 
 ## [0.12.0] - 2026-01-28
 
@@ -166,7 +170,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Re-uploaded README to correct [#10](https://github.com/loopystudios/bevy_async_task/issues/10).
+- Re-uploaded README to correct [#10](https://github.com/nuzzles/bevy_async_task/issues/10).
 
 ## [0.1.0] - 2024-02-01
 
@@ -177,20 +181,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[unreleased]: https://github.com/loopystudios/bevy_async_task/compare/v0.12.0...HEAD
-[0.12.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.11.1...v0.12.0
-[0.11.1]: https://github.com/loopystudios/bevy_async_task/compare/v0.11.0...v0.11.1
-[0.11.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.10.0...v0.11.0
-[0.10.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.9.0...v0.10.0
-[0.9.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.8.1...v0.9.0
-[0.8.1]: https://github.com/loopystudios/bevy_async_task/compare/v0.8.0...v0.8.1
-[0.8.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.7.0...v0.8.0
-[0.7.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.6.0...v0.7.0
-[0.6.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.4.1...v0.5.0
-[0.4.1]: https://github.com/loopystudios/bevy_async_task/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/loopystudios/bevy_async_task/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/loopystudios/bevy_async_task/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/loopystudios/bevy_async_task/releases/tag/v0.1.0
+[unreleased]: https://github.com/nuzzles/bevy_async_task/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.12.0...v0.13.0
+[0.12.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.11.1...v0.12.0
+[0.11.1]: https://github.com/nuzzles/bevy_async_task/compare/v0.11.0...v0.11.1
+[0.11.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.10.0...v0.11.0
+[0.10.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.9.0...v0.10.0
+[0.9.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.8.1...v0.9.0
+[0.8.1]: https://github.com/nuzzles/bevy_async_task/compare/v0.8.0...v0.8.1
+[0.8.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.7.0...v0.8.0
+[0.7.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/nuzzles/bevy_async_task/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/nuzzles/bevy_async_task/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/nuzzles/bevy_async_task/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/nuzzles/bevy_async_task/releases/tag/v0.1.0

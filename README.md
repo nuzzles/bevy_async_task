@@ -5,10 +5,10 @@
 [![Discord](https://img.shields.io/discord/913957940560531456.svg?label=Loopy&logo=discord&logoColor=ffffff&color=ffffff&labelColor=000000)](https://discord.gg/zrjnQzdjCB)
 ![MIT/Apache 2.0](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)
 [![Following released Bevy versions](https://img.shields.io/badge/bevy%20tracking-released%20version-lightblue)](https://bevyengine.org/learn/quick-start/plugin-development/#main-branch-tracking)\
-[![Dependency status](https://deps.rs/repo/github/loopystudios/bevy_async_task/status.svg)](https://deps.rs/repo/github/loopystudios/bevy_async_task)
+[![Dependency status](https://deps.rs/repo/github/nuzzles/bevy_async_task/status.svg)](https://deps.rs/repo/github/nuzzles/bevy_async_task)
 [![crates.io](https://img.shields.io/crates/v/bevy_async_task.svg)](https://crates.io/crates/bevy_async_task)
 [![docs.rs](https://img.shields.io/docsrs/bevy_async_task)](https://docs.rs/bevy_async_task)
-[![Build status](https://github.com/loopystudios/bevy_async_task/workflows/CI/badge.svg)](https://github.com/loopystudios/bevy_async_task/actions)
+[![Build status](https://github.com/nuzzles/bevy_async_task/workflows/CI/badge.svg)](https://github.com/nuzzles/bevy_async_task/actions)
 
 A minimum crate for ergonomic abstractions to async programming in Bevy. There is full API support for **wasm** and **native**. Android and iOS are untested (Help needed).
 
@@ -20,7 +20,8 @@ Bevy Async Task provides Bevy system parameters to run asynchronous tasks in the
 
 |bevy|bevy_async_task|
 |---|---|
-|0.18|0.12,main|
+|0.19|0.13,main|
+|0.18|0.12|
 |0.17|0.9-0.11|
 |0.16|0.6-0.8|
 |0.15|0.3-0.5|

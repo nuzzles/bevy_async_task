@@ -3,6 +3,7 @@ use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering;
 
 use futures::channel::mpsc;
+use futures::channel::mpsc::TryRecvError;
 use futures::channel::oneshot;
 use futures::task::AtomicWaker;
 
@@ -49,11 +50,11 @@ impl<T> AsyncStreamReceiver<T> {
     pub fn try_recv(&mut self) -> Option<T> {
         match self.receiver.try_recv() {
             Ok(item) => Some(item),
-            Err(e) if e.is_empty() => {
+            Err(TryRecvError::Empty) => {
                 // No message yet, and sender is not dropped.
                 None
             }
-            Err(_) => {
+            Err(TryRecvError::Closed) => {
                 // Sender is closed, stream exhausted
                 if self.finished.load(Ordering::Relaxed) {
                     // Signal to the producer that we're done
